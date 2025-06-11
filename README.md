@@ -1,64 +1,96 @@
-🚗 Used Car Price Prediction – Machine Learning Project
+# 🚗 Used Car Price Prediction
 
-📌 Overview
-This project focuses on predicting the price of used cars using machine learning techniques. The dataset contains various features like brand, model year, mileage, engine specs, fuel type, accident history, and more.
+A machine learning project to predict the **price of used cars** based on various features like mileage, brand, engine specs, transmission, and accident history.
 
-The goal was to clean and preprocess the data, explore it through visualizations, and train models to predict the car price effectively.
+---
 
-📂 Dataset
-The dataset includes:
+## 📌 Overview
 
-Categorical: brand, fuel_type, has_accident
+This project involves:
+- Cleaning and preprocessing a real-world used cars dataset
+- Exploratory Data Analysis (EDA) with visualizations
+- Training regression models to predict car prices
+- Evaluating models using multiple metrics
 
-Numerical: milage, model_year, gear, hp, litre, cylinder, price
+---
 
-Mixed: engine (preprocessed to extract hp, litre, cylinder)
+## 📂 Dataset
 
-⚙️ ML Pipeline
-Data Preprocessing
+The dataset includes both **categorical** and **numerical** features:
 
-Cleaned milage, price, and engine columns
+- **Categorical:** `brand`, `fuel_type`, `has_accident`
+- **Numerical:** `milage`, `model_year`, `gear`, `hp`, `litre`, `cylinder`, `price`
+- **Mixed:** `engine` (parsed into `hp`, `litre`, `cylinder`)
 
-Handled missing values with mean (numerical) and mode/random choice (categorical)
+---
 
-Encoded categorical variables using Label Encoding and One-Hot Encoding
+## ⚙️ ML Pipeline
 
-Model Training
+### 🔧 Preprocessing
+- Cleaned `milage`, `price`, and parsed `engine` specs
+- Handled missing values:
+  - **Numerical**: filled with mean
+  - **Categorical**: filled using mode or random choices
+- Encoded variables using:
+  - Label Encoding (`brand`)
+  - One-Hot Encoding (`fuel_type`)
 
-Tried both Linear Regression and Random Forest Regressor
+### 🤖 Model Training
+- Implemented **Linear Regression** and **Random Forest Regressor**
+- Applied **log transformation** on price to reduce skewness
 
-Applied log transformation on the target to reduce skewness
+---
 
-Model Evaluation
-📊 Random Forest (best performing model):
+## 📊 Model Evaluation (Best: Random Forest)
 
-MAE: 17,670.15 (~35.16%)
+| Metric   | Value (Absolute) | Value (Relative to Mean Price) |
+|----------|------------------|--------------------------------|
+| MAE      | 17,670.15        | ~35.16%                        |
+| RMSE     | 135,287.21       | ~269.17%                       |
+| R² Score | 0.1045           |                                |
+| MAPE     | 23.67%           |                                |
+| MPE      | -4.42%           |                                |
 
-RMSE: 135,287.21 (~269.17%)
+---
 
-R² Score: 0.1045
+## 🔍 Key Learnings
 
-MAPE: 23.67%
+- Extracting features from messy text (like engine details)
+- Handling missing values with appropriate strategies
+- Encoding techniques for categorical data
+- Model evaluation using **MAE, RMSE, MAPE, R²**
+- Benefits of **log transformation** in regression
 
-MPE: -4.42%
+---
 
-🔍 Key Learnings
-Feature extraction from messy text columns
+## 🧠 Technologies Used
 
-Handling missing values and encoding techniques
+- **Python**, **Jupyter Notebook**
+- **Pandas**, **NumPy**, **Matplotlib**, **Seaborn**
+- **Scikit-learn**
 
-Model evaluation using multiple metrics (MAE, RMSE, MAPE, R²)
+---
 
-Log transformation to handle skewed price distributions
+## 📁 Project Files
 
-🧠 Technologies Used
-Python, Jupyter Notebook
+| File Name       | Description                                      |
+|------------------|--------------------------------------------------|
+| `Model.ipynb`    | Full pipeline: EDA, preprocessing, modeling      |
+| `used_cars.csv`  | Cleaned dataset used in the notebook             |
+| `model.pkl` (opt)| Trained Random Forest model (optional for reuse) |
 
-Pandas, NumPy, Matplotlib, Seaborn
+---
 
-Scikit-learn
+## 📎 How to Run
 
-📁 Files
-Model.ipynb – Full notebook with code, EDA, preprocessing, model training, and evaluation
+1. Clone the repo  
+2. Open `Model.ipynb` in Jupyter or VS Code  
+3. Run the notebook to see the full pipeline in action
 
-used_cars.csv – Cleaned dataset used in the project
+---
+
+### 📌 Note
+
+This is an academic/personal learning project and not meant for production deployment without further tuning and validation.
+
+---
